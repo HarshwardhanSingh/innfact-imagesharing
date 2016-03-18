@@ -1,0 +1,38 @@
+<div class="post">
+  <div class="media">
+    <div class="media-left">
+      <%= image_tag(post.user.avatar.url(:thumb),class: 'img-user-thumb img-circle')%>
+    </div>
+    <div class="media-body">
+      <label class="post-user-name"><%= link_to {post.user.username} %></label>
+      <br/>
+      <span class="time-ago-post"><%= time_ago_in_words(post.created_at) %></span>
+    </div>
+  </div>
+
+  <div class="post-body">
+    <%= image_tag(post.image.url(:original),class:'img-responsive') %>
+    <p class="img-caption">
+      <%= post.content %>
+    </p>
+  </div>
+
+  <div class="media post-footer">
+    <div class="media-left">
+      <% if user_signed_in? %>
+        <% if current_user.likes?(post) %>
+          <%= link_to fa_icon("thumbs-down", text: "UnLike"),unlike_post_path(post.id),class: 'btn btn-danger btn-sm unlike-btn' %>
+        <% else %>
+          <%= link_to fa_icon("thumbs-up", text: "Like"),like_post_path(post.id),class: 'btn btn-primary btn-sm like-btn' %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="media-body">
+      <!-- Display Counter and Post Options -->
+    </div>
+  </div>
+
+  <div class="comment-form">
+    <!-- Display comment form -->
+  </div>
+</div>

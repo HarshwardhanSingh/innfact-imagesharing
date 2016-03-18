@@ -9,5 +9,10 @@ Rails.application.routes.draw do
     resources :comments, only:[:create,:delete]
   end
 
+  get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
+
+  get ':user_id/follow_user', to: 'posts#follow', as: 'follow_user'
+  get ':user_id/unfollow_user', to: 'posts#unfollow', as: 'unfollow_user'
+
   root to: 'pages#welcome'
 end
