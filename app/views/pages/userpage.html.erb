@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag(@user.avatar.url(:medium), class: 'img-rounded img-responsive user-avatar-userpage') %>
+      <div class="user-info">
+        <h4><%= @user.username.upcase %></h4><span class="pull-right"><%= link_to "Follow","#",class: 'btn btn-success' %></span>
+        <div class="user-stats">
+          <span class="follower-counter"><%= pluralize(@user.followers(User).count,"Follower") %></span>
+          <span class="followee-counter"><%= pluralize(@user.followees(User).count,"Following") %></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <%= render partial: 'posts/post', collection: @posts %>
+    </div>
+  </div>
+</div>

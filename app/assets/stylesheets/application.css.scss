@@ -1,20 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
 @import "*";
 
 
 body
 {
   margin-top: 70px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   background-color: #fafafa;
 }
 
 nav.navbar-default
 {
   background-color: #ffffff;
+
 }
 
 .sign-up,.sign-in

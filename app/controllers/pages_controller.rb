@@ -17,8 +17,9 @@ class PagesController < ApplicationController
   def filterByTag
   end
 
-  def timeline
-    @posts = current_user.posts.order(created_at: :desc)
+  def userpage
+    @user = User.find_by(username: params[:username])
+    @posts = @user.posts.order(created_at: :desc)
   end
-  
+
 end

@@ -1,0 +1,4 @@
+<%= simple_form_for(Comment.new, url: post_comments_path(post.id)) do |f| %>
+  <%= f.input :content,as: :string,label: false, input_html:{placeholder: "Your word"} %>
+  <%= f.submit "Comment", class: 'btn btn-primary' %>
+<% end %>

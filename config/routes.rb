@@ -6,13 +6,15 @@ Rails.application.routes.draw do
       get 'like', to: 'posts#like', as: 'like'
       get 'unlike', to: 'posts#unlike', as: 'unlike'
     end
-    resources :comments, only:[:create,:delete]
+    resources :comments, only:[:create,:destroy]
   end
 
   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
 
   get ':user_id/follow_user', to: 'posts#follow', as: 'follow_user'
   get ':user_id/unfollow_user', to: 'posts#unfollow', as: 'unfollow_user'
+
+  get ':username', to: 'pages#userpage', as: 'userpage'
 
   root to: 'pages#welcome'
 end
