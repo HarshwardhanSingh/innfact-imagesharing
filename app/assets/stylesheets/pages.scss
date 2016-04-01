@@ -19,13 +19,15 @@ img.user-avatar-userpage
     {
       border-radius: 0px;
       height: 30px;
-      line-height: 1;
-      // float: right;
+      border-radius: 0.2em;
+      text-transform: uppercase;
+      font-size: 12px;
+      line-height: 1.5;
     }
   }
   .user-stats
   {
-    margin-top:5px;
+    margin-top:10px;
     background-color: #ffffff;
     padding:5px;
     border:2px solid #e9e9e9;
@@ -36,6 +38,9 @@ img.user-avatar-userpage
       display: inline-block;
       text-align: center;
       text-transform: uppercase;
+      line-height: 1.5;
+      height: 30px;
+      color: rgb(99, 165, 201);
 
     }
     span.follower-counter
@@ -48,5 +53,45 @@ img.user-avatar-userpage
     {
       width: auto;
     }
+  }
+}
+
+.usercard
+{
+  max-width: 90%;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  border: 2px solid rgb(233, 233, 233);
+  border-radius: 0.2em;
+  box-shadow: 0 0 3px 1px #efeeee;
+
+  img
+  {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  h4
+  {
+    text-align: center;
+    a
+    {
+      color:#2d2d2d;
+    }
+  }
+  h5
+  {
+    text-align: center;
+    font-style: italic;
+    a
+    {
+      color: rgb(143, 139, 139);
+    }
+  }
+  a.btn-follow,a.btn-unfollow
+  {
+    margin:0 auto;
+    display: block;
+    text-transform: uppercase;
   }
 }

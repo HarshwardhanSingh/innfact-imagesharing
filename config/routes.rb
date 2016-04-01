@@ -11,8 +11,10 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
 
-  get ':user_id/follow_user', to: 'posts#follow', as: 'follow_user'
-  get ':user_id/unfollow_user', to: 'posts#unfollow', as: 'unfollow_user'
+  get ':user_id/follow_user', to: 'pages#follow', as: 'follow_user'
+  get ':user_id/unfollow_user', to: 'pages#unfollow', as: 'unfollow_user'
+  get ':username/followers', to: 'pages#followers', as: 'followers'
+  get ':username/followings', to: 'pages#followings', as: 'followings'
 
   get ':username', to: 'pages#userpage', as: 'userpage'
 

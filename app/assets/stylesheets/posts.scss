@@ -4,7 +4,7 @@
   padding: 10px;
   border:1px solid #e9e9e9;
   border-radius: .2em;
-  margin:2rem auto;
+  margin:1.5rem auto 2rem auto;
   width:90%;
 
   label.post-user-name
@@ -40,13 +40,14 @@
 
   .post-footer
   {
-    background-color: rgb(250, 250, 250);
+    background-color:rgba(201, 198, 198, 0.2);
     padding: 10px;
     margin: 0px -10px -10px;
 
     .media-body
     {
         text-align: right;
+        line-height: 2;
     }
 
     .like-btn,.unlike-btn
