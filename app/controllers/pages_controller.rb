@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  
+  before_action :authenticate_user!, only:[:follow,:unfollow,:dashboard]
 
   def welcome
     if user_signed_in?

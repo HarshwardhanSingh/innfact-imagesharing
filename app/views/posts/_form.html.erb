@@ -5,6 +5,9 @@
   <div class="form-group">
     <%= f.input :content, label: false, input_html:{placeholder: "Caption"} %>
   </div>
+  <div class="form-ggroup">
+  	<%= f.association :category,as: :select%>
+  </div>
   <div class="form-action">
     <%= f.submit "Submit", class: 'btn btn-primary' %>
   </div>

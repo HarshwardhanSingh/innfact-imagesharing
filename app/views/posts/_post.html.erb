@@ -32,7 +32,9 @@
     </div>
   </div>
 
-  <div class="comment-form">
-    <%= render partial: 'comments/form', locals:{post: post} %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="comment-form">
+      <%= render partial: 'comments/form', locals:{post: post} %>
+    </div>
+  <% end %>
 </div>

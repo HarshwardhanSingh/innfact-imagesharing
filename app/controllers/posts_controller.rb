@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :authenticate_user!, except:[:index,:show]
+
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -63,7 +65,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:image,:content)
+      params.require(:post).permit(:image,:content,:category_id)
     end
 
 
