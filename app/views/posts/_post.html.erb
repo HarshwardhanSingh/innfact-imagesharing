@@ -4,7 +4,13 @@
       <%= image_tag(post.user.avatar.url(:thumb),class: 'img-user-thumb img-circle')%>
     </div>
     <div class="media-body">
-      <label class="post-user-name"><%= link_to post.user.username, userpage_path(post.user.username) %></label>
+      <label class="post-user-name">
+        <% if !post.user.name.present? %> 
+          <%= link_to post.user.username, userpage_path(post.user.username) %> 
+        <% else %> 
+          <%= link_to post.user.name, userpage_path(post.user.username) %>
+        <% end %>
+      </label>
       <br/>
       <span class="time-ago-post"><%= time_ago_in_words(post.created_at) %></span>
     </div>

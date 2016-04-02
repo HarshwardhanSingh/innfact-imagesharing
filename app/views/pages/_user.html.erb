@@ -1,7 +1,13 @@
 <div class="col-md-3">
 	<div class="usercard">
 		<%= image_tag(user.avatar.url(:medium),class: 'img-circle img-responsive') %>
-		<h4 class="user-name"><%= link_to user.username, userpage_path(user.username) %></h4>
+		<h4 class="user-name">
+			<% if !user.name.present? %> 
+				<%= link_to user.username, userpage_path(user.username) %> 
+			<% else %> 
+				<%= link_to user.name, userpage_path(user.username) %>
+			<% end %>
+		</h4>
 		<h5 class="username">@<%= link_to user.username, userpage_path(user.username) %></h5>
 		<% if user_signed_in? and user.id != current_user.id %>
           <% if user.followed_by?(current_user)%>
