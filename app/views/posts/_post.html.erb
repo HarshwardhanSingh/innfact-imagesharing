@@ -12,7 +12,7 @@
 
   <div class="post-body">
     <%= image_tag(post.image.url(:medium),class: 'img-responsive') %>
-    <%= link_to post.category.name.upcase,tagged_with_path(post.category.name), class: 'btn btn-info post-tag-link' %>
+    <%= link_to "##{post.category.name.upcase}",tagged_with_path(post.category.name), class: 'btn btn-info post-tag-link' %>
     <p class="img-caption">
       <%= post.content %>
     </p>
