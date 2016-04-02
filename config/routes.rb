@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get ':username/followers', to: 'pages#followers', as: 'followers'
   get ':username/followings', to: 'pages#followings', as: 'followings'
 
+  get '/tagged/:tag', to: 'pages#filterByTag', as: 'tagged_with'
+
   get ':username', to: 'pages#userpage', as: 'userpage'
 
   root to: 'pages#welcome'

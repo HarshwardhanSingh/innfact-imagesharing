@@ -16,6 +16,8 @@ class PagesController < ApplicationController
   end
 
   def filterByTag
+    @category = Category.find_by(name: params[:tag])
+    @posts = @category.posts.order(created_at: :desc)
   end
 
   def userpage

@@ -6,6 +6,7 @@
   border-radius: .2em;
   margin:1.5rem auto 2rem auto;
   width:90%;
+  position: relative;
 
   label.post-user-name
   {
@@ -26,6 +27,13 @@
   {
     margin-top: 10px;
 
+    a.post-tag-link
+    {
+      top: 10px;
+      right: 0px;
+      position: absolute;
+      border-radius: 0;
+    }
     img
     {
       width: 100%;
