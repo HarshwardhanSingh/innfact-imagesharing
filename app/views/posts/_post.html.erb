@@ -21,14 +21,15 @@
     <div class="media-left">
       <% if user_signed_in? %>
         <% if current_user.likes?(post) %>
-          <%= link_to fa_icon("thumbs-down", text: "UnLike"),unlike_post_path(post.id),class: 'btn btn-danger btn-sm unlike-btn' %>
+          <%= link_to fa_icon("thumbs-up", text: "Liked"),unlike_post_path(post.id),class: 'btn btn-primary btn-sm unlike-btn' %>
         <% else %>
-          <%= link_to fa_icon("thumbs-up", text: "Like"),like_post_path(post.id),class: 'btn btn-primary btn-sm like-btn' %>
+          <%= link_to fa_icon("thumbs-o-up", text: "Like"),like_post_path(post.id),class: 'btn btn-default btn-sm like-btn' %>
         <% end %>
       <% end %>
     </div>
     <div class="media-body">
-      <%= pluralize(post.likers(User).count, "Like") %>
+      <span class="likes-counter"><%= fa_icon("heart-o",text: post.likers(User).count) %></span>
+      <span class="comments-counter"><%= fa_icon("comments-o",text: post.comments.count) %></span>
     </div>
   </div>
 
