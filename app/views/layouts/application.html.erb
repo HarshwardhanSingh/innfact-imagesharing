@@ -15,6 +15,7 @@
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li><%= link_to "Home", dashboard_path %></li>
+        <li><%= link_to "Compose Post", new_post_path %></li>
         <li><%= link_to current_user.username, userpage_path(current_user.username) %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       <% else %>
