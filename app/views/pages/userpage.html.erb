@@ -3,21 +3,30 @@
     <div class="col-md-3">
       <%= image_tag(@user.avatar.url(:medium), class: 'img-responsive user-avatar-userpage') %>
       <div class="user-info">
-        <h4><%= @user.username.upcase %></h4>
-        <% if user_signed_in? and @user.id != current_user.id %>
-          <% if @user.followed_by?(current_user)%>
-            <span class="pull-right"><%= link_to "Following",unfollow_user_path(@user.id),class: 'btn btn-success' %></span>
-          <% else %>
-            <span class="pull-right"><%= link_to "Follow",follow_user_path(@user.id),class: 'btn btn-success' %></span>
-          <% end %>
-        <% end %>
-        <div class="user-stats">
-          <span class="follower-counter"><%= link_to pluralize(@user.followers(User).count,"Follower"), followers_path(@user.username) %></span>
-          <span class="followee-counter"><%= link_to pluralize(@user.followees(User).count,"Following"), followings_path(@user.username) %></span>
-        </div>
+        <h4><%= link_to @user.name, userpage_path(@user.username) if @user.name.present? %></h4>
+        <span><%= link_to "@#{@user.username}", userpage_path(@user.username) %></span>
       </div>
     </div>
     <div class="col-md-6">
+      <div class="user-bio">
+        <article>
+          <% if @user.bio.present? %>
+            <h5>INTRODUCTION</h5>
+            <p><%= @user.bio %></p>
+          <% end %>
+          <div class="user-stats">
+            <span class="follower-counter"><%= link_to pluralize(@user.followers(User).count,"Follower"), followers_path(@user.username) %></span>
+              <% if user_signed_in? and @user.id != current_user.id %>
+                <% if @user.followed_by?(current_user)%>
+                  <span class="follow-action"><%= link_to "Following",unfollow_user_path(@user.id),class: 'btn btn-success' %></span>
+                <% else %>
+                  <span class="follow-action"><%= link_to "Follow",follow_user_path(@user.id),class: 'btn btn-success' %></span>
+              <% end %>
+            <% end %>
+            <span class="followee-counter"><%= link_to pluralize(@user.followees(User).count,"Following"), followings_path(@user.username) %></span>
+          </div>
+        </article>
+      </div>
       <%= render partial: 'posts/post', collection: @posts %>
     </div>
   </div>

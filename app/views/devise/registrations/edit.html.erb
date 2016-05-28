@@ -9,6 +9,7 @@
       <%= f.input :email,label: false, required: true,input_html: {placeholder: "Email"} %>
       <%= f.input :name,label: false, required: false,input_html: {placeholder: "Full Name"} %>
       <%= f.input :avatar %>
+      <%= f.input :bio, label: false, input_html:{placeholder: "Tell us something about yourself"} %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
