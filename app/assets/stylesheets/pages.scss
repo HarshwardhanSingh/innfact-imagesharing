@@ -9,12 +9,12 @@ img.user-avatar-userpage
   h4
   {
     display: inline-block;
+    margin-bottom: -1rem;
   }
   span
   {
-    padding-top: 5px;
+    margin-top: -1rem;
     display: inline-block;
-    // float: right;
     a
     {
       border-radius: 0px;
@@ -23,6 +23,8 @@ img.user-avatar-userpage
       text-transform: uppercase;
       font-size: 12px;
       line-height: 1.5;
+      color: rgb(113, 110, 110);
+
     }
   }
   .user-stats
@@ -57,6 +59,8 @@ img.user-avatar-userpage
 }
 .user-bio
 {
+  margin-top: 2rem;
+
   article
   {
     width: 90%;
