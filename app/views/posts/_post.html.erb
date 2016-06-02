@@ -1,4 +1,4 @@
-<div class="post">
+<div class="post" data-id= <%= post.id %>>
   <div class="media">
     <div class="media-left">
       <%= image_tag(post.user.avatar.url(:thumb),class: 'img-user-thumb img-circle')%>
@@ -17,7 +17,7 @@
   </div>
 
   <div class="post-body">
-    <%= image_tag(post.image.url(:medium),class: 'img-responsive') %>
+    <%= link_to image_tag(post.image.url(:medium),class: 'img-responsive'), post_path(post.id) %>
     <%= link_to "##{post.category.name.upcase}",tagged_with_path(post.category.name), class: 'btn btn-info post-tag-link' %>
     <p class="img-caption">
       <%= post.content %>
@@ -28,9 +28,9 @@
     <div class="media-left">
       <% if user_signed_in? %>
         <% if current_user.likes?(post) %>
-          <%= link_to fa_icon("thumbs-up", text: "Liked"),unlike_post_path(post.id),class: 'btn btn-primary btn-sm unlike-btn' %>
+          <%= link_to fa_icon("heart lg", text: "Liked"),"#",remote: true,onclick: "unlikePost(#{post.id})",data:{id: post.id},class: 'btn btn-danger btn-sm unlike-btn' %>
         <% else %>
-          <%= link_to fa_icon("thumbs-o-up", text: "Like"),like_post_path(post.id),class: 'btn btn-default btn-sm like-btn' %>
+          <%= link_to fa_icon("heart-o lg", text: "Like"),"#",remote: true,onclick: "likePost(#{post.id})",data:{id: post.id},class: 'btn btn-default btn-sm like-btn' %>
         <% end %>
       <% end %>
     </div>
@@ -38,11 +38,15 @@
       <span class="likes-counter"><%= fa_icon("heart-o",text: post.likers(User).count) %></span>
       <span class="comments-counter"><%= fa_icon("comments-o",text: post.comments.count) %></span>
     </div>
-  </div>
 
-  <% if user_signed_in? %>
-    <div class="comment-form">
-      <%= render partial: 'comments/form', locals:{post: post} %>
-    </div>
-  <% end %>
+    <% if user_signed_in? %>
+      <div class="comment-form">
+        <%= render partial: 'comments/form', locals:{post: post} %>
+      </div>
+      <div class="post-comments post-comments-dash" data-id=<%= post.id %>>
+        
+      </div>
+    <% end %>
+  </div>
 </div>
+

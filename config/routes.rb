@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get 'like', to: 'posts#like', as: 'like'
       get 'unlike', to: 'posts#unlike', as: 'unlike'
     end
-    resources :comments, only:[:create,:destroy]
+    resources :comments
   end
 
   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'

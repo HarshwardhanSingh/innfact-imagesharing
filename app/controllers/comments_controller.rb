@@ -7,8 +7,8 @@ class CommentsController < ApplicationController
     @comment.post_id = params[:post_id]
     @comment.save
     respond_to do |format|
-      format.html{ redirect_to :back }
-      format.js {  }
+      # format.html{ redirect_to :back }
+      format.js {}
     end
   end
 
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     @comment.destroy
     respond_to do |format|
       format.html{ redirect_to :back }
-      format.js {  }
+      format.js {}
     end
   end
 

@@ -28,3 +28,5 @@ gem 'devise'
 gem "paperclip", "~> 4.3"
 gem "font-awesome-rails"
 gem "socialization"
+
+gem 'remotipart', '~> 1.2'

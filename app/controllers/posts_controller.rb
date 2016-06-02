@@ -13,15 +13,18 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    respond_to do |format|
-      format.html{ redirect_to post_path(@post) }
+    if @post.save
+      respond_to do |format|
+        format.html{ redirect_to post_path(@post) }
+      end
+    else
+      render action: 'new' 
     end
   end
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.order(created_at: :desc)
+    # @comments = @post.comments.order(created_at: :desc)
   end
 
   def edit

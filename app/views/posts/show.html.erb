@@ -1,7 +1,58 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <%= render partial: 'post', locals:{post: @post} %>
+      <div class="post" data-id= <%= @post.id %>>
+		  <div class="media">
+		    <div class="media-left">
+		      <%= image_tag(@post.user.avatar.url(:thumb),class: 'img-user-thumb img-circle')%>
+		    </div>
+		    <div class="media-body">
+		      <label class="post-user-name">
+		        <% if !@post.user.name.present? %> 
+		          <%= link_to @post.user.username, userpage_path(@post.user.username) %> 
+		        <% else %> 
+		          <%= link_to @post.user.name, userpage_path(@post.user.username) %>
+		        <% end %>
+		      </label>
+		      <br/>
+		      <span class="time-ago-post"><%= time_ago_in_words(@post.created_at) %></span>
+		    </div>
+		  </div>
+
+		  <div class="post-body">
+		    <%= image_tag(@post.image.url(:medium),class: 'img-responsive') %>
+		    <%= link_to "##{@post.category.name.upcase}",tagged_with_path(@post.category.name), class: 'btn btn-info post-tag-link' %>
+		    <p class="img-caption">
+		      <%= @post.content %>
+		    </p>
+		  </div>
+
+		  <div class="media post-footer">
+		    <div class="media-left">
+		      <% if user_signed_in? %>
+		        <% if current_user.likes?(@post) %>
+		          <%= link_to fa_icon("heart lg", text: "Liked"),"#",remote: true,onclick: "unlikePost(#{@post.id})",data:{id: @post.id},class: 'btn btn-danger btn-sm unlike-btn' %>
+		        <% else %>
+		          <%= link_to fa_icon("heart-o lg", text: "Like"),"#",remote: true,onclick: "likePost(#{@post.id})",data:{id: @post.id},class: 'btn btn-default btn-sm like-btn' %>
+		        <% end %>
+		      <% end %>
+		    </div>
+		    <div class="media-body">
+		      <span class="likes-counter"><%= fa_icon("heart-o",text: @post.likers(User).count) %></span>
+		      <span class="comments-counter"><%= fa_icon("comments-o",text: @post.comments.count) %></span>
+		    </div>
+		  </div>
+
+		  <% if user_signed_in? %>
+		    <div class="comment-form">
+		      <%= render partial: 'comments/form', locals:{post: @post} %>
+		    </div>
+		    <div class="post-comments" data-id=<%= @post.id %>>
+		    	<% @comments = @post.comments.order(created_at: :desc) %>
+		        <%= render partial: 'comments/comment', collection: @comments %>
+		    </div>
+		  <% end %>
+		</div>
     </div>
   </div>
 </div>

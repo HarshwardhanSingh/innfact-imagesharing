@@ -5,11 +5,14 @@ class PagesController < ApplicationController
   def welcome
     if user_signed_in?
       redirect_to dashboard_path
+    else
+      render :layout => false
     end
   end
 
   def dashboard
     @posts = Post.order(created_at: :desc)
+    @post = Post.new
   end
 
   def search

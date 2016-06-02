@@ -1,5 +1,11 @@
 <div class="container">
 	<div class="row">
-		<%= render partial: 'user',collection: @users %>
+		<% if @users.present? %>
+			<%= render partial: 'user',collection: @users %>
+		<% else %>
+			<div class="not-found">
+				<h4>No User Found</h4>
+			</div>
+		<% end %>
 	</div>
 </div>

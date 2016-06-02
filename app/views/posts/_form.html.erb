@@ -1,4 +1,7 @@
 <%= simple_form_for(@post,html:{multipart: true}) do |f| %>
+
+  <%= f.error_notification %>
+
   <div class="form-group">
     <%= f.input :image, label: false %>
   </div>

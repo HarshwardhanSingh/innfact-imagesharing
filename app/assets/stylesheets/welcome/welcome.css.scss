@@ -1,0 +1,49 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+
+body
+{
+	background-image: url('/images/bg.jpeg');
+	font-family: "Noto Sans",sans-serif;
+ 
+}
+
+nav.navbar-default
+{
+	background-color: transparent;
+	border: none;
+
+	.container
+	{
+		.navbar-header
+		{
+			a.navbar-brand
+			{
+				color:#ffffff;
+			}
+		}
+
+		ul.navbar-nav
+		{
+			li
+			{
+				a
+				{
+					color:#fff;
+				}
+			}
+		}
+	}
+}
+
+.welcome-main
+{
+	color: rgb(255, 255, 255);
+	margin-top: 20rem;
+	font-weight: normal;
+	text-align: center;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
