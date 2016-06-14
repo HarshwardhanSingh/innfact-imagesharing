@@ -13,4 +13,17 @@ This is a image sharing social networking site build with Ruby on Rails 4.2 wher
 1. Watch post(Get notified about the activity for a post even when you don't own that post).
 2. Notification system with JQuery's setInterval
 
+## How to use?
+
+    Download as zip.
+    Extract the folder
+    $ cd innfact-imagesharing
+    Run $ bundle install command to install required gems
+    Run $ rake db:migrate command to create required tables
+    Run $ rails s command to run the rails development server
+    
+
+###### Keep Learning and Improving
+
+
 
