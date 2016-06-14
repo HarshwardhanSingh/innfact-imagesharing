@@ -15,12 +15,12 @@ This is a image sharing social networking site build with Ruby on Rails 4.2 wher
 
 ## How to use?
 
-    Download as zip.
-    Extract the folder
-    $ cd innfact-imagesharing
-    Run $ bundle install command to install required gems
-    Run $ rake db:migrate command to create required tables
-    Run $ rails s command to run the rails development server
+1. Download as zip.
+2. Extract the folder
+3. Run $ `cd innfact-imagesharing`
+4. Run $ `bundle install` command to install required gems
+5. Run $ `rake db:migrate` command to create required tables
+6. Run $ `rails s command` to run the rails development server
     
 
 ###### Keep Learning and Improving
